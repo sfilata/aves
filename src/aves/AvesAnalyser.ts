@@ -7,7 +7,7 @@ export default class {
   public byteFrequencyArray: Uint8Array
   public byteTimeDomainArray: Uint8Array
   public floatFrequencyArray: Float32Array
-  public maxHz: number = 16000
+  public maxHz: number = 22000
   public minHz: number = 20
   // private
   constructor(aves: Aves) {
