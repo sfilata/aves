@@ -1,6 +1,6 @@
 {
-  "name": "aves.js",
-  "version": "0.0.3",
+  "name": "aves_slim",
+  "version": "1.0.0",
   "description": "Audio spectrum analyzer written in type script. Developed using web audio api.",
   "main": "dist/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/yusuke-ten/aves.git"
   },
   "keywords": ["audio", "spectrum", "analyser"],
-  "author": "yusuke_ten",
+  "author": "yusuke_ten, sfilata",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yusuke-ten/aves/issues"
