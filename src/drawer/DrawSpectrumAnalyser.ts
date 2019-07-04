@@ -7,7 +7,7 @@ export default class {
   private _ctx: CanvasRenderingContext2D
   private _animationFrameId: number
   private _bgColor: string
-  private _dispHz: number[] = [2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000, 18000, 20000]
+  private _dispHz: number[] = [4000, 8000, 12000, 16000, 20000]
   private _dispDecibel: number[] = [0, -10, -20, -30, -40, -50, -60, -70, -80, -90]
 
   constructor(elm: HTMLCanvasElement, canvasWidth: number, canvasHeight: number) {
@@ -110,27 +110,27 @@ export default class {
     // ─────────────────────────────────────────────────────────────────
     // X軸に目盛りを描画
     // ─────────────────────────────────────────────────────────────────
-    // for (const value of DispHzAndX) {
-    //   this._ctx.fillStyle = gridStyle
-    //   this._ctx.fillRect(value.pointX, 0, gridSize, this._canvasHeight)
-    //   this._ctx.fillStyle = scaleStyle
-    //   this._ctx.fillText(value.text, value.pointX - 12, this._canvasHeight - fontSize)
-    // }
+    for (const value of DispHzAndX) {
+      this._ctx.fillStyle = gridStyle
+      this._ctx.fillRect(value.pointX, 0, gridSize, this._canvasHeight)
+      this._ctx.fillStyle = scaleStyle
+      this._ctx.fillText(value.text, value.pointX - 12, this._canvasHeight - fontSize)
+    }
 
     // ─────────────────────────────────────────────────────────────────
     // Y軸に目盛りを描画
     // ─────────────────────────────────────────────────────────────────
-    // for (const decibel of this._dispDecibel) {
-    //   if (decibel === 0) continue
-    //   const range = avesAnalyser.range()
-    //   const text = String(decibel)
-    //   const pointY = this._canvasHeight * -(decibel / range)
+    for (const decibel of this._dispDecibel) {
+      if (decibel === 0) continue
+      const range = avesAnalyser.range()
+      const text = String(decibel)
+      const pointY = this._canvasHeight * -(decibel / range)
 
-    //   this._ctx.fillStyle = gridStyle
-    //   this._ctx.fillRect(0, pointY, this._canvasWidth, gridSize)
-    //   this._ctx.fillStyle = scaleStyle
-    //   this._ctx.fillText(text, 5, pointY + 12)
-    // }
+      this._ctx.fillStyle = gridStyle
+      this._ctx.fillRect(0, pointY, this._canvasWidth, gridSize)
+      this._ctx.fillStyle = scaleStyle
+      this._ctx.fillText(text, 5, pointY + 12)
+    }
   }
 
   /**
