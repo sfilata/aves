@@ -10,9 +10,13 @@ export default class {
   public maxHz: number = 22000
   public minHz: number = 20
   // private
-  constructor(aves: Aves) {
+  constructor(aves: Aves, isElement: boolean = false) {
     this._analyserNode = aves.audioCtx.createAnalyser()
-    aves.source.connect(this._analyserNode)
+    if (isElement) {
+      aves.sourceElement.connect(this._analyserNode)
+    } else {
+      aves.source.connect(this._analyserNode)
+    }
 
     // default 2048
     this._analyserNode.fftSize = 2048

@@ -3,6 +3,8 @@ export default class {
   public sampleRate: number
   public audioBuffer: AudioBuffer
   public source: AudioBufferSourceNode
+  public sourceElement: MediaElementAudioSourceNode
+  public audioElement: HTMLMediaElement
   // private
   constructor() {
     if (!window) {
@@ -20,6 +22,12 @@ export default class {
       this.source.buffer = buffer
       return this.source
     })
+  }
+
+  setAudioElement(audioElement: HTMLMediaElement) {
+    this.sourceElement = this.audioCtx.createMediaElementSource(audioElement)
+    this.sourceElement.connect(this.audioCtx.destination)
+    this.audioElement = audioElement
   }
 
   start() {

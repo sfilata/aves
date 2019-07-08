@@ -32,6 +32,10 @@ export default class {
     }
   }
 
+  setAudioElement(audioElement: HTMLMediaElement) {
+    return this.aves.setAudioElement(audioElement)
+  }
+
   start(): void {
     this.aves.start()
     if (this.drawSpectrumAnalyser instanceof DrawSpectrumAnalyser) {
@@ -59,8 +63,13 @@ export default class {
    * @param {number} canvasWidth
    * @param {number} canvasHeight
    */
-  createSpectrumAnalyser(elm: HTMLCanvasElement, canvasWidth: number, canvasHeight: number) {
-    this.avesAnalyser = new AvesAnalyser(this.aves)
+  createSpectrumAnalyser(
+    elm: HTMLCanvasElement,
+    canvasWidth: number,
+    canvasHeight: number,
+    isElement: boolean = false
+  ) {
+    this.avesAnalyser = new AvesAnalyser(this.aves, isElement)
     this.drawSpectrumAnalyser = new DrawSpectrumAnalyser(elm, canvasWidth, canvasHeight)
   }
 
